@@ -3,4 +3,10 @@ Rails.application.routes.draw do
   resources :restaurants
   root "restaurants#index"
 
+
+
+  namespace :admin do
+    root "restaurants#index"
+  end
+
 end
