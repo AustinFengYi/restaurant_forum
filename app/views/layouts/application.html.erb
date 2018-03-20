@@ -6,20 +6,58 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      .container{
+        background-color: gray;
+        width: 100%;
+      }
+
+      .logo{
+        float:left;
+      }
+
+      .nav{
+        float:right;
+      }
+      .nav li {
+        display: inline-block;
+        color: black;
+      }
+
+      .text-color{
+        color:black;
+      }
+
+      .log{
+        text-align: center;
+      }
+    </style>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <div class="container">
+          <div class="logo">
+            <h4>餐廳評論網</h4>      
+          </div>
 
-<% if current_user %>
-    Hi,棒棒的 <%= current_user.email %>
-    <%= link_to('登出', destroy_user_session_path, :method => :delete)%> |
-    <%= link_to('修改密碼', edit_user_registration_path) %>
-<% else %>
-    <%= link_to('註冊', new_user_registration_path) %> |
-    <%= link_to('登入', new_user_session_path) %>
-    <% end %>
+          <% if current_user %>
+           <ul class="nav">
+             <li>Hi,棒棒的 <%= current_user.email %></li>
+             <li><%= link_to('登出', destroy_user_session_path, :method => :delete, class: 'text-color')%></li> 
+             <li><%= link_to('修改密碼', edit_user_registration_path, class: 'text-color') %></li>
+           </ul>
+          <% else %>
+           <ul class="nav">
+             <li><%= link_to('註冊', new_user_registration_path, class: 'text-color') %></li> 
+             <li><%= link_to('登入', new_user_session_path, class: 'text-color') %></li>
+           </ul>
+          <% end %>
+      </div>
+         
+         <div class="log">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+         </div>
 
     <%= yield %>
   </body>
