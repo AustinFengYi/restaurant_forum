@@ -1,13 +1,50 @@
-<h1><%= @restaurant.name %></h1>
+<style>
+  td{
+    color:gray ;
+    height: 40px;
+    font-size: 15pt;
+  }
 
-Opening Hours:<%= @restaurant.opening_hours %><br>
-Tel: <%= @restaurant.tel %><br>
-Address: <%= @restaurant.address %><br>
-Description:<%= @restaurant.description %><br>
+  .photo{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
 
-Image:<%= @restaurant.image %>
-<%= image_tag @restaurant.image, width:'300px' if@restaurant.image? %><br>
+  .return{
+    text-align: center;
+  }
+</style>
 
-<br>
+<div class="form container">
 
-<%= link_to 'Back to index', admin_restaurants_path %>
+<h3><%= @restaurant.name %></h3>
+
+<table>
+
+<tr><td>Opening Hours:<%= @restaurant.opening_hours %></td></tr>
+<tr><td>Tel: <%= @restaurant.tel %></td></tr>
+<tr><td>Address: <%= @restaurant.address %></td></tr>
+<tr><td>Description:<%= @restaurant.description %></td></tr>
+
+<tr><td>
+  <div class="photo">
+<%= image_tag @restaurant.image, width:'300px' if@restaurant.image? %>
+ </div>
+</td></tr>
+
+<tr><td>
+  <div class="return">
+<%= link_to admin_restaurants_path do %>
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-repeat"></span> back to index 
+        </button>
+        <%end%>
+  </div>
+</td></tr>
+
+
+</table>
+
+</div>
+
