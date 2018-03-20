@@ -13,6 +13,14 @@
     vertical-align: middle;
     font-size: 20pt;
  }
+
+ .add-new-restaurant{
+  text-align: center;
+ }
+
+ .pagebar{
+  text-align: center;
+ }
 </style>
 
 
@@ -54,5 +62,15 @@
     <% end %>
 </table>
 
+<div class="add-new-restaurant">
+<%= link_to new_admin_restaurant_path do%>
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-plus"></span> 新增餐廳
+        </button>
+        <%end%>
+</div>
+
+<div class="pagebar">
 <%= paginate @restaurants %>
-<%= link_to 'New Restaurant', new_admin_restaurant_path %>
+</div>
+
