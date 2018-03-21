@@ -2,12 +2,16 @@
   h1{
     color:gray;
     text-align: center;
+    margin-bottom: 20px;
   }
-
+ .bar-photo{
+  margin-left: 30px;
+ }
  .table .control-image-frame {
     max-width: 150px;
     margin-left:15px;
  }
+
 
  .table tbody tr td {
     vertical-align: middle;
@@ -28,17 +32,26 @@
 
 <table class="table table-striped">
     <tr>
-      
+      <td><div class="bar-photo">餐廳圖片</div></td>
+      <td>餐廳名稱</td>
+      <td>餐廳分類</td>
+      <td>瀏覽餐廳</td>
+      <td>編輯餐廳</td>
+      <td>刪除餐廳</td>  
     </tr> 
 
     <% @restaurants.each do |restaurant| %>
-      <tr><td>
+      <tr>
+
+        <td>
         <div class="control-image-frame">
               <%= image_tag(restaurant.image, width: "100%") %>          
         </div>
         </td>
         
         <td><%= restaurant.name %></td>
+        
+        <td>[<%= restaurant.category.name %>]</td>
 
         <td><%= link_to admin_restaurant_path(restaurant) do %>
           <button type="button" class="btn btn-default btn-sm">
