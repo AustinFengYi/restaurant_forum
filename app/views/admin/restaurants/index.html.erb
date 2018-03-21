@@ -33,7 +33,11 @@
 
     <% @restaurants.each do |restaurant| %>
       <tr>
-        <td><div class="control-image-frame"><%= image_tag restaurant.image , width: "100%" %></div>
+        <td><div class="control-image-frame">
+          <%if image_path(@restaurant.image).include?('/'+img_id.to_s+'.jpg') %>
+          <%= image_tag restaurant.image , width: "100%" %>
+          <%end%>
+        </div>
         </td>
         <td><%= restaurant.name %></td>
 
