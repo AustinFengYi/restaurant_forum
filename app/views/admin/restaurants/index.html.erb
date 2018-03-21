@@ -32,9 +32,9 @@
     </tr> 
 
     <% @restaurants.each do |restaurant| %>
-      <tr>
-        <td><div class="control-image-frame">
-         <%= image_tag restaurant.image , width: "100%" %>
+      <tr><td>
+        <div class="control-image-frame">
+              <%= image_tag(restaurant.image, width: "100%") %>          
         </div>
         </td>
         
