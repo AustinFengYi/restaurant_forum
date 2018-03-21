@@ -46,7 +46,7 @@ class Admin::RestaurantsController < ApplicationController
     flash[:alert] = "restaurant was deleted"
   end
 
-
+ 
 
 
   private
