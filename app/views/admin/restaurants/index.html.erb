@@ -34,11 +34,10 @@
     <% @restaurants.each do |restaurant| %>
       <tr>
         <td><div class="control-image-frame">
-          <%if image_path(@restaurant.image).include?('/'+img_id.to_s+'.jpg') %>
-          <%= image_tag restaurant.image , width: "100%" %>
-          <%end%>
+         <%= image_tag restaurant.image , width: "100%" %>
         </div>
         </td>
+        
         <td><%= restaurant.name %></td>
 
         <td><%= link_to admin_restaurant_path(restaurant) do %>
