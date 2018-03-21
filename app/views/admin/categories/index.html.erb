@@ -49,6 +49,7 @@
             <td>#</td>
             <td>Category Name</td>
             <td>Edit</td>
+            <td>Delete</td>
           </tr>
         </thead>
         <tbody>
@@ -57,6 +58,7 @@
             <td><%= category.id %></td>
             <td><%= category.name %></td>
             <td><%= link_to 'Edit',admin_categories_path(id: category.id) %></td>
+            <td><%= link_to 'Delete', admin_category_path(category), method: :delete, data: { confirm: "你確定要刪除嗎?"} %></td>
           </tr>
           <% end %>
         </tbody>
