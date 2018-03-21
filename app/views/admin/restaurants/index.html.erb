@@ -2,8 +2,13 @@
   h1{
     color:gray;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
+
+ .classtitle{
+  text-align: center;
+  margin-bottom: 20px;
+ }
  .bar-photo{
   margin-left: 30px;
  }
@@ -29,6 +34,10 @@
 
 
 <h1>餐廳後台管理</h1>
+<div class="classtitle">
+  <%= link_to 'Restaurant', admin_restaurants_path %> |
+  <%= link_to 'Categories', admin_categories_path %>
+</div>
 
 <table class="table table-striped">
     <tr>
