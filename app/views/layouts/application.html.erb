@@ -15,10 +15,10 @@
         float:left;
       }
 
-      .nav{
+      .nav-toolbox{
         float:right;
       }
-      .nav li {
+      .nav-toolbox li {
         display: inline-block;
         color: black;
       }
@@ -42,13 +42,13 @@
           </div>
 
           <% if current_user %>
-           <ul class="nav">
+           <ul class="nav nav-toolbox">
              <li>Hi,棒棒的 <%= current_user.email %></li>
              <li><%= link_to('登出', destroy_user_session_path, :method => :delete, class: 'text-color')%></li> 
              <li><%= link_to('修改密碼', edit_user_registration_path, class: 'text-color') %></li>
            </ul>
           <% else %>
-           <ul class="nav">
+           <ul class="nav nav-toolbox">
              <li><%= link_to('註冊', new_user_registration_path, class: 'text-color') %></li> 
              <li><%= link_to('登入', new_user_session_path, class: 'text-color') %></li>
            </ul>
