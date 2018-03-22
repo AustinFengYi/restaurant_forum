@@ -8,5 +8,5 @@ class User < ApplicationRecord
     self.role == "admin"
   end
 
-
+  has_many :comments
 end
