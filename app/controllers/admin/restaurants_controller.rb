@@ -6,7 +6,7 @@ class Admin::RestaurantsController < Admin::BaseController
 
 
   def index
-    @restaurants = Restaurant.order("updated_at DESC").page(params[:page]).per(4)
+    @restaurants = Restaurant.page(params[:page]).per(10)
   end
 
   def new
