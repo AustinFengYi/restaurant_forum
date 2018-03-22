@@ -14,6 +14,13 @@
   .return{
     text-align: center;
   }
+
+  h3{
+    text-align: center;
+  }
+  h5{
+    text-align: right;
+  }
 </style>
 
 <div class="form container">
@@ -31,6 +38,38 @@
   <div class="photo">
 <%= image_tag @restaurant.image, width:'300px' if@restaurant.image? %>
  </div>
+</td></tr>
+
+
+<tr><td>
+  <div class="container">
+  <div class="row">
+   <%= form_for [@restaurant, @comment] do |f| %>
+    <div class="form-group">
+      <h3>留言板</h3>
+      <%= f.text_area :content, placeholder: "留個言吧", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit class: "btn btn-primary" %>
+      <%= f.button "Cancel", type: :reset, class: "btn btn-default" %>
+    </div>
+  <% end %>
+  </div>
+</div>
+</td></tr>
+
+<tr><td>
+    <!-- 顯示與餐廳相關的評論 -->
+    <% @restaurant.comments.each do |comment| %>
+    <div>
+      <h4><%= comment.user.email.split('@').first %></h4>
+      <p><%= simple_format comment.content %></p>
+      <p class="text-muted">
+        <h5><%= time_ago_in_words(comment.created_at) %> ago </h5>
+      </p>
+    </div>
+    <hr>
+    <% end %>
 </td></tr>
 
 <tr><td>
