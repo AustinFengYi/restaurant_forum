@@ -41,8 +41,9 @@
 
   <div class="form-group">
       <%= f.label :image, "Photo" %>
-      <%= f.file_field :image %>
-      <%= image_tag @restaurant.image, width:'300px' if@restaurant.image? %>
+      <%= f.filestack_field :image, '上傳圖片',  pickerOptions: {accept: 'image/*'}, id: 'unique-id' %> 
+      <%#= f.file_field :image %>
+      <%#= image_tag @restaurant.image, width:'300px' if@restaurant.image? %>
   </div>
 
       <%= f.submit %>

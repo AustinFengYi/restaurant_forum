@@ -13,8 +13,8 @@
   margin-left: 30px;
  }
  .table .control-image-frame {
-    max-width: 150px;
-    margin-left:15px;
+    /*max-width: 150px;*/
+    margin-right:15px;
  }
 
 
@@ -54,7 +54,8 @@
 
         <td>
         <div class="control-image-frame">
-              <%= image_tag(restaurant.image, width: "100%") %>          
+              <%= filestack_image restaurant.image, transform: filestack_transform.resize(width:200, height:200) %>
+              <%#= image_tag(restaurant.image, width: "100%") %>          
         </div>
         </td>
         

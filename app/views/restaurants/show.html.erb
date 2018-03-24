@@ -39,7 +39,8 @@
 
 <tr><td>
   <div class="photo">
-<%= image_tag @restaurant.image, width:'300px' if@restaurant.image? %>
+<%= filestack_image @restaurant.image, transform: filestack_transform.resize(width:400, height:300) %>
+<%#= image_tag @restaurant.image, width:'300px' if@restaurant.image? %>
  </div>
 </td></tr>
 

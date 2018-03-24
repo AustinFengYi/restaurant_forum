@@ -38,6 +38,9 @@ gem 'ffaker'
 gem 'kaminari'
 gem 'bootstrap-sass', '~>3.3.7'
 gem 'jquery-rails'
+gem 'filestack-rails', '~> 3.1.0'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

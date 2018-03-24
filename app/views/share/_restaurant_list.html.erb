@@ -6,15 +6,17 @@
   margin-bottom: 20px;
 }
 
-.restaurant-item img {
+/*.restaurant-item img {
   max-height: 180px;
-  width: 100%;
+  width: 100%;*/
 }
 
 .restaurant-item .caption {
   padding: 10px;
 }
-
+.image-adaptar{
+  text-align: center;
+}
 </style>
 
 
@@ -23,9 +25,11 @@
     <% @restaurants.each do |restaurant| %>
       <div class="col-sm-6 col-md-4">
         <div class="restaurant-item">
+          <div class="image-adaptar">
           <%=link_to restaurant_path(restaurant) do %>
-            <%= image_tag restaurant.image, class: "img-responsive center-block" %>
-         <%end%>
+            <%= filestack_image restaurant.image, transform: filestack_transform.resize( height:200) %>
+            <%#= image_tag restaurant.image, class: "img-responsive center-block" %>
+         <%end%></div>
 
           <div class="caption">
             <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
