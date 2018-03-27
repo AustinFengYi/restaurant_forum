@@ -1,0 +1,32 @@
+<style>
+  .left{
+    display: inline-block;
+  }
+
+  .right{
+    display: inline-block;
+  }
+</style>
+
+<div class="container">
+<div class="left">
+  
+  
+
+</div>
+
+<ul class="right">
+  <li><%= link_to edit_user_path(current_user) do %>
+          <button type="button" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-edit"></span> 編輯user
+        </button>
+        <%end%>
+  </li>
+  <li><%= @user.name %></li>
+  <li><%= @user.intro %></li>
+  <li><%= filestack_image @user.image, transform: filestack_transform.resize(width:400, height:300) %>
+
+</li>
+</ul>
+
+</div>

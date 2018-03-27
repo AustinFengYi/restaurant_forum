@@ -40,12 +40,17 @@
     <header id="header">
       <div class="container">
           <div class="logo">
-            <h4>餐廳評論網</h4>      
+            <h4>餐廳評論網</h4>    
           </div>
 
           <% if current_user %>
            <ul class="nav nav-toolbox">
+            <% if current_user.admin? %>
+             <li><%= link_to 'Admin後台',admin_restaurants_path , class: 'text-color'%></li>
+             <li><%= link_to '前台頁面',restaurants_path , class: 'text-color'%></li>
+            <%end%> 
              <li>Hi,棒棒的 <%= current_user.email %></li>
+             <li><%= link_to('Profile',user_path(current_user), class: 'text-color') %></li>
              <li><%= link_to('登出', destroy_user_session_path, :method => :delete, class: 'text-color')%></li> 
              <li><%= link_to('修改密碼', edit_user_registration_path, class: 'text-color') %></li>
            </ul>
