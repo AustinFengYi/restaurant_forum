@@ -2,7 +2,21 @@
   .edit_profile{
     margin-top: 15px;
   }
+
+  .my-restaurant{
+   display: inline-block;
+   text-align: center;
+   padding: 10px;
+  }
+
+  .my-restaurant > div {
+   height: 70px;
+ }
+ .panel a:hover .my-restaurant {
+  background-color: #eee;
+}
 </style>
+
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
@@ -33,7 +47,24 @@
 
       <br>
 
-
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h5 class="panel_title"><strong><%= @commented_restaurants.count %></strong>已評論餐廳</h5>
+          </div>
+         
+          <div class="panel-body">
+            <% @commented_restaurants.each do |restaurant| %>
+            <%= link_to restaurant_path(restaurant) do %>
+            <div class="my-restaurant">
+              <div>
+                <%= filestack_image restaurant.image, transform: filestack_transform.resize(width:100, height:100) %>
+              </div>
+              <h5><%= restaurant.name %></h5>
+            </div>
+            <%end%>
+            <%end%>
+          </div>
+        </div>
 
     </div>
   </div>
