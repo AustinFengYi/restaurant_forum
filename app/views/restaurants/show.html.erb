@@ -41,6 +41,8 @@
  <%= link_to 'Dashboard', dashboard_restaurant_path(@restaurant), class: "btn btn-primary" %>
 
  <%= render partial: "share/favorite", locals: {restaurant: @restaurant}%>
+
+ <%= render partial: "share/like", locals: {restaurant: @restaurant}%>
 </td></tr>
 
 
