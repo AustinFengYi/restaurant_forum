@@ -23,6 +23,7 @@ def feeds
  def favorite
     @restaurant = Restaurant.find(params[:id])
     @restaurant.favorites.create!(user: current_user)
+    @restaurant.count_favorites
     redirect_back(fallback_location: root_path)
   end
 
@@ -30,6 +31,7 @@ def feeds
     @restaurant = Restaurant.find(params[:id])
     favorite = Favorite.where(restaurant: @restaurant, user: current_user).first
     favorite.destroy
+    @restaurant.count_favorites
     redirect_back(fallback_location: root_path)
   end
 
