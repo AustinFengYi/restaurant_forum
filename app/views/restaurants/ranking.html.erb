@@ -38,9 +38,10 @@
 
         <div class="ranking-item">
           <div class="col-md-3">
-            <%= link_to restaurant_path(restaurant) do %>
-              <%= image_tag restaurant.image, class: "img-responsive center-block" %>
-            <% end %>
+            <%=link_to restaurant_path(restaurant) do %>
+            <%= filestack_image restaurant.image, transform: filestack_transform.resize( width:200) %>
+            <%#= image_tag restaurant.image, class: "img-responsive center-block" %>
+         <%end%>
           </div>
           <div class="col-md-9">
             <h4>
