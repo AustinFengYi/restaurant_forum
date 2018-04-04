@@ -51,7 +51,7 @@ def feeds
 
   def ranking
     @restaurants = Restaurant.order(favorites_count: :desc).limit(10)
-  end
+     end
 
 
   
