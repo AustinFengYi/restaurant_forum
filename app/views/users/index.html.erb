@@ -1,11 +1,51 @@
-<ul>
-  
-  <% @users.each do |user| %>
-    <li>
-      <%= user.name %>
-      <%= render partial: "share/following", locals: {user: user} %>
-    </li>
- 
-  <% end%>
-</ul>
+<style>
+.user-item {
+  margin-bottom: 15px;
+}
+</style>
 
+<div class="container">
+  <div class="row">
+
+    <ul class="nav nav-tabs">
+      <li role="presentation" >
+        <%= link_to '首頁', root_path %>
+      </li>
+      <li role="presentation">
+        <%= link_to '最新動態' %>
+      </li>
+      <li role="presentation">
+        <%= link_to 'TOP10人氣餐廳', ranking_restaurants_path %>
+      </li>
+      <li role="presentation" class="active">
+        <%= link_to '美食達人', users_path %>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>美食達人</h1>
+      </div>
+    </div>
+
+    <% @users.each do |user| %>
+      <div class="col-md-3 col-sm-4 col-xs-6 text-center user-item">
+
+        <%= link_to user_path(user) do %>
+          <%= filestack_image user.image, transform: filestack_transform.resize(width:150, height:100) %>
+          <h4><%= user.name %></h4>
+        <% end %>
+
+        <%= render partial: "share/following", locals: {user: user} %>
+
+      </div>
+    <% end %>
+
+  </div>
+</div>
